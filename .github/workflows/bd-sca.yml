@@ -25,7 +25,8 @@ jobs:
     - name: Black Duck SCA Scan
       uses: blackduck-inc/black-duck-security-scan@v2
       env:
-        DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
+        #DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
+        DETECT_PROJECT_NAME: webgoat
       with:
         blackducksca_url: ${{ vars.BLACKDUCK_URL }}
         blackducksca_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
@@ -35,5 +36,5 @@ jobs:
         blackducksca_reports_sarif_create: false
         blackducksca_upload_sarif_report: false
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        include_diagnostics: false
-        detect_args: --detect.accuracy.required=NONE --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING
+        include_diagnostics: true
+        detect_args: --detect.excluded.detector.types=GIT --detect.accuracy.required=NONE --detect.blackduck.signature.scanner.snippet.matching=SNIPPET_MATCHING
