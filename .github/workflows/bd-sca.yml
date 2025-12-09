@@ -26,7 +26,7 @@ jobs:
       uses: blackduck-inc/black-duck-security-scan@v2
       env:
         #DETECT_PROJECT_NAME: ${{ github.event.repository.name }}
-        DETECT_PROJECT_NAME: webgoat
+        DETECT_PROJECT_NAME: JB-webgoat-TEST
       with:
         blackducksca_url: ${{ vars.BLACKDUCK_URL }}
         blackducksca_token: ${{ secrets.BLACKDUCK_API_TOKEN }}
